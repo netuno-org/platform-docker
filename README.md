@@ -28,6 +28,10 @@ docker compose up -d --build
 ```
 
 ## Useful Commands
+- To show netuno logs
+```bash
+docker compose logs -f netuno
+```
 - Stop containers without removing them
 ```bash
 docker compose stop
