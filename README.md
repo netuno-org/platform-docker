@@ -19,12 +19,12 @@ command: bash -c "./netuno server app=<my-netuno-app>"
 ```
 
 ## 🏃 How to Run
-To build the Netuno image (the first build may take a few minutes as it installs Java, Node, and Netuno) and start the services:
+To and start the services:
 ```bash
-docker compose up --build
+docker compose up
 
 # 💡 To run in the background, add the -d flag
-docker compose up -d --build
+docker compose up -d
 ```
 
 ## Useful Commands
