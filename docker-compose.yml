@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  netuno:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netuno
+    container_name: netuno
+    depends_on:
+      - postgres
+    ports:
+      - "9000:9000"
+      - "3000:3000"
+    volumes:
+      - .:/srv/netuno/apps/<netuno-app-name>
+    command: bash -c "./netuno server app=<netuno-app-name>"
+
+  postgres:
+    container_name: tarsiu_postgres
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: netuno
+      POSTGRES_DB: netuno
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-extensions.sql:/docker-entrypoint-initdb.d/init-extensions.sql
+
+volumes:
+  pgdata:
