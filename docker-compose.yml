@@ -17,7 +17,7 @@ services:
     command: bash -c "./netuno server app=<netuno-app-name>"
 
   postgres:
-    container_name: tarsiu_postgres
+    container_name: netuno_postgres
     image: postgres:15
     restart: unless-stopped
     environment:
