@@ -1,25 +1,25 @@
 # platform-docker
-Official container images for the Netuno Platform.
+Docker-based development setup for the Netuno Platform. Docker Compose builds the local `netuno` image and starts it with PostgreSQL.
 
 ## Prerequisites
 - [Docker](https://docs.docker.com/get-started/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## ⚙️ Initial Setup
-1. Copy the Docker configuration files to the root of your Netuno app.
+1. Copy `Dockerfile`, `docker-compose.yml`, and `init-extensions.sql` to the root of your Netuno app.
 2. Open the `docker-compose.yml` file and replace all occurrences of `<netuno-app-name>` with your application's actual name.
 - In the volume mapping:
 ```yml
 volumes:
-  - .:/srv/netuno/apps/<my-netuno-app>
+  - .:/srv/netuno/apps/<netuno-app-name>
 ```
 - In the startup command:
 ```yml
-command: bash -c "./netuno server app=<my-netuno-app>"
+command: bash -c "./netuno server app=<netuno-app-name>"
 ```
 
 ## 🏃 How to Run
-To and start the services:
+To build and start the services:
 ```bash
 docker compose up
 
